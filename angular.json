@@ -3,34 +3,34 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-forms-advanced": {
+    "forms-playground": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "projects/forms-playground",
+      "sourceRoot": "projects/forms-playground/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-forms-advanced",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
+            "outputPath": "dist/forms-playground",
+            "index": "projects/forms-playground/src/index.html",
+            "browser": "projects/forms-playground/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "projects/forms-playground/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/forms-playground/src/favicon.ico",
+              "projects/forms-playground/src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "projects/forms-playground/src/styles.scss"
             ],
             "scripts": []
           },
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-forms-advanced:build:production"
+              "buildTarget": "forms-playground:build:production"
             },
             "development": {
-              "buildTarget": "angular-forms-advanced:build:development"
+              "buildTarget": "forms-playground:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-forms-advanced:build"
+            "buildTarget": "forms-playground:build"
           }
         },
         "test": {
@@ -83,16 +83,49 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "tsconfig.spec.json",
+            "tsConfig": "projects/forms-playground/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/forms-playground/src/favicon.ico",
+              "projects/forms-playground/src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "projects/forms-playground/src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "custom-form-controls": {
+      "projectType": "library",
+      "root": "projects/custom-form-controls",
+      "sourceRoot": "projects/custom-form-controls/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/custom-form-controls/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/custom-form-controls/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/custom-form-controls/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/custom-form-controls/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }

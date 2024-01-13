@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular-forms-advanced' title`, () => {
+  it(`should have the 'forms-playground' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-forms-advanced');
+    expect(app.title).toEqual('forms-playground');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-forms-advanced');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, forms-playground');
   });
 });
