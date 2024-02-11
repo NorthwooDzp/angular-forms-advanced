@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { UserInfo } from '../../../models';
 
 @Component({
@@ -28,5 +28,11 @@ export class TemplateFormsPageComponent {
     return Array(now - (now - 40))
       .fill('')
       .map((_, idx) => now - idx);
+  }
+
+  public onSubmitForm(form: NgForm, event: SubmitEvent): void {
+    console.log('The form has been submitted', form.value);
+    console.log('The native submit event', event);
+    form.resetForm();
   }
 }

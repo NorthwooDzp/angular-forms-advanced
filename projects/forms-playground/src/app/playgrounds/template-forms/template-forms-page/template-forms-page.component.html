@@ -1,29 +1,46 @@
-<form class="form" #form="ngForm">
+<form class="form" #form="ngForm" (ngSubmit)="onSubmitForm(form, $event)">
   <p>Form model state:</p>
   <pre>{{ userInfo | json }}</pre>
   <div class="form-field">
     <label for="name">First Name</label>
-    <input [(ngModel)]="userInfo.firstName" type="text" id="name" name="first-name" placeholder="Enter your name">
+    <input
+      [(ngModel)]="userInfo.firstName"
+      name="first-name"
+      type="text"
+      id="name"
+      placeholder="Enter your name"
+    />
   </div>
   <div class="form-field">
     <label for="last-name">Last Name</label>
-    <input [(ngModel)]="userInfo.lastName" name="last-name" type="text" id="last-name"
-           placeholder="Enter your last name">
+    <input
+      [(ngModel)]="userInfo.lastName"
+      name="last-name"
+      type="text"
+      id="last-name"
+      placeholder="Enter your last name"
+    />
   </div>
   <div class="form-field">
     <label for="nickname">Nickname</label>
-    <input [(ngModel)]="userInfo.nickname" type="text" name="nickname" id="nickname" placeholder="Come up with a nickname">
+    <input
+      [(ngModel)]="userInfo.nickname"
+      type="text"
+      name="nickname"
+      id="nickname"
+      placeholder="Come up with a nickname"
+    />
   </div>
   <div class="form-field">
     <label for="email">Email</label>
-    <input [(ngModel)]="userInfo.email" type="email" name="email" id="email" placeholder="Provide your email">
+    <input [(ngModel)]="userInfo.email" type="email" name="email" id="email" placeholder="Provide your email" />
   </div>
   <div class="form-field-inline-group">
     <div class="form-field form-field--small">
       <label for="year-of-birth">Year of Birth</label>
       <select [(ngModel)]="userInfo.yearOfBirth" id="year-of-birth" name="year-of-birth">
         @for (year of years; track year) {
-          <option [value]="year">{{year}}</option>
+          <option [value]="year">{{ year }}</option>
         }
       </select>
     </div>
@@ -34,10 +51,11 @@
         name="passport"
         type="text"
         id="passport"
-        placeholder="Provide Passport Data">
+        placeholder="Provide Passport Data"
+      />
     </div>
   </div>
-  <fieldset ngModelGroup="address">
+  <fieldset>
     <legend>Address</legend>
     <div class="form-field">
       <label for="full-address">Full Address</label>
@@ -46,16 +64,12 @@
         name="full-address"
         type="text"
         id="full-address"
-        placeholder="Street name and house number">
+        placeholder="Street name and house number"
+      />
     </div>
     <div class="form-field">
       <label for="city">City</label>
-      <input
-        [(ngModel)]="userInfo.city"
-        name="city"
-        type="text"
-        id="city"
-        placeholder="City">
+      <input [(ngModel)]="userInfo.city" name="city" type="text" id="city" placeholder="City" />
     </div>
     <div class="form-field">
       <label for="post-code">Post Code</label>
@@ -64,7 +78,9 @@
         name="post-code"
         type="number"
         id="post-code"
-        placeholder="Post code">
+        placeholder="Post code"
+      />
     </div>
   </fieldset>
+  <button>Save</button>
 </form>

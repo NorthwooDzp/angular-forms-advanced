@@ -2,10 +2,12 @@
   <img
     src="https://www.decodedfrontend.io/wp-content/uploads/2021/01/logo-01-1.png"
     alt="Decoded Frontend"
-    class="logo">
+    class="logo"
+  />
   <div class="nav">
-    <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       Template-Driven Forms
     </a>
   </div>
+  <input [(ngModel)]="searchString" type="text" class="global-search" placeholder="Global Search" />
 </header>
